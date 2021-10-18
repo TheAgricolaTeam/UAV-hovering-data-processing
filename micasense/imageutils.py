@@ -257,7 +257,7 @@ def align_capture(capture, ref_index=1, warp_mode=cv2.MOTION_HOMOGRAPHY, max_ite
     return warp_matrices, alignment_pairs
 
 #apply homography to create an aligned stack
-def aligned_capture(capture, warp_matrices, warp_mode, cropped_dimensions, match_index, img_type = 'reflectance',interpolation_mode=cv2.INTER_LANCZOS4):
+def aligned_capture(capture, warp_matrices, warp_mode, cropped_dimensions, match_index, img_type = 'reflectance',interpolation_mode=cv2.INTER_NEAREST):#cv2.INTER_LANCZOS4):
     width, height = capture.images[0].size()
 
     im_aligned = np.zeros((height,width,len(warp_matrices)), dtype=np.float32 )

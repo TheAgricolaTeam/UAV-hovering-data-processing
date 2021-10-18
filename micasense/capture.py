@@ -399,7 +399,7 @@ class Capture(object):
                 outdata = self.__aligned_capture[:,:,inband]
                 outdata[outdata<0] = 0
                 outdata[outdata>2] = 2   #limit reflectance data to 200% to allow some specular reflections
-                outband.WriteArray(outdata*32768) # scale reflectance images so 100% = 32768
+                outband.WriteArray(outdata*10000) # scale reflectance images so 100% = 32768
                 outband.FlushCache()
 
             for outband,inband in enumerate(self.lw_indices()):
